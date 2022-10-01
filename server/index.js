@@ -8,11 +8,11 @@ import postRoutes from './routes/posts.js';
 const app = express();
 app.use(express.json())
 const PORT = process.env.PORT || 4000;
-app.use('/saurabh',postRoutes);
+
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
-
+app.use('/saurabh',postRoutes);
 const CONNECTION_URL = 'mongodb+srv://sawcodes:qEvB5sZxg4MOLNEE@cluster0.lrik1zd.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
